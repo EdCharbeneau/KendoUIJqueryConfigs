@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.common-material.min.css" rel="stylesheet" type="text/css"
+    />
+    <link href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.mobile.all.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.nova.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://kendo.cdn.telerik.com/2018.1.221/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2018.1.221/js/jszip.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.all.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.aspnetmvc.min.js"></script>
+
+    <!-- app scripts -->
+    <script src="./scripts/appConfig.js"></script>
+    <script src="./scripts/gridConfig.js"></script>
+
+</head>
+
+<body>
+    <div id="example">
+        <div id="grid"></div>
+        <script>
+            $(document).ready(function () {
+                $("#grid").kendoGrid(gridConfig.extendGridConfig({
+                    dataSource: {
+                        schema: {
+                            model: {
+                                fields: {
+                                    OrderDate: { type: "date" },
+                                    ShipCity: { type: "string" }
+                                }
+                            }
+                        },
+                    },
+                    columns: [{
+                        field: "OrderID",
+                        filterable: false
+                    },
+                        "Freight",
+                    {
+                        field: "OrderDate",
+                        title: "Order Date",
+                        format: "{0:MM/dd/yyyy}"
+                    }, {
+                        field: "ShipName",
+                        title: "Ship Name"
+                    }, {
+                        field: "ShipCity",
+                        title: "Ship City"
+                    }
+                    ]
+                }));
+            });
+
+        </script>
+    </div>
+
+</body>
+
+</html>
